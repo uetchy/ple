@@ -1,16 +1,27 @@
 #!/usr/bin/env node
 
 import cac from 'cac';
-import epicfail from 'epicfail';
-import { rewritePlist } from '.';
+import epicfail, { fail } from 'epicfail';
+import { rewritePlist, readPlist } from '.';
 
-epicfail({ showStackTrace: false });
+epicfail();
 
 const cli = cac();
 
-cli.command('<plistPath> <key> <value>').action((plistPath, key, value) => {
-  rewritePlist(plistPath, key, value);
+cli.command('<plistPath> <key> [value]').action((plistPath, key, value) => {
+  if (value) {
+    rewritePlist(plistPath, key, value);
+  } else {
+    console.log(readPlist(plistPath, key));
+  }
 });
 cli.help();
 
-cli.parse();
+try {
+  cli.parse();
+} catch (err) {
+  if (['CACError'].includes(err.name) || err?.code?.startsWith('ENOENT')) {
+    fail(err, { soft: true });
+  }
+  throw err;
+}
