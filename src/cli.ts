@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
 import cac from 'cac';
-import epicfail, { fail } from 'epicfail';
-import { rewritePlist, readPlist } from '.';
+import epicfail, { log as epicLog } from 'epicfail';
+import { readPlist, rewritePlist } from '.';
 
-epicfail();
+epicfail({
+  assertExpected: (err) =>
+    err.name === 'CACError' || (err as any)?.code?.startsWith('ENOENT'),
+});
 
 const cli = cac();
 
@@ -23,12 +26,4 @@ cli
     }
   });
 cli.help();
-
-try {
-  cli.parse();
-} catch (err) {
-  if (['CACError'].includes(err.name) || err?.code?.startsWith('ENOENT')) {
-    fail(err, { soft: true });
-  }
-  throw err;
-}
+cli.parse();

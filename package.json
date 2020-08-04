@@ -14,7 +14,7 @@
   "dependencies": {
     "cac": "^6.6.1",
     "deepmerge": "^4.2.2",
-    "epicfail": "^0.4.2",
+    "epicfail": "^1.0.0",
     "plist": "^3.0.1"
   },
   "devDependencies": {
