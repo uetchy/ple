@@ -24,8 +24,9 @@ export function writePlist(plistPath: string, data: any): void {
   writeFileSync(plistPath, plist.build(data));
 }
 
-export function readPlist(plistPath: string, key: string): any {
+export function readPlist(plistPath: string, key?: string): any {
   const data = loadPlist(plistPath);
+  if (!key) return data;
   return readDottedProps(key, data);
 }
 

@@ -8,13 +8,20 @@ epicfail();
 
 const cli = cac();
 
-cli.command('<plistPath> <key> [value]').action((plistPath, key, value) => {
-  if (value) {
-    rewritePlist(plistPath, key, value);
-  } else {
-    console.log(readPlist(plistPath, key));
-  }
-});
+function log(obj: any, json: boolean = false) {
+  console.log(json ? JSON.stringify(obj, null, 2) : obj);
+}
+
+cli
+  .command('<plistPath> [key] [value]')
+  .option('json', 'boolean', { default: false })
+  .action((plistPath, key, value, { json }) => {
+    if (value) {
+      rewritePlist(plistPath, key, value);
+    } else {
+      log(readPlist(plistPath, key), json);
+    }
+  });
 cli.help();
 
 try {
