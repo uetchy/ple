@@ -1,7 +1,7 @@
 {
   "name": "ple",
   "description": "Streamlined PList Editor.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io)",
   "scripts": {
     "build": "run-s clean 'build:ts --minify --dts'",
