@@ -12,5 +12,5 @@ npm test
 ## Release Guide (Maintainers only)
 
 ```bash
-np
+release-it
 ```

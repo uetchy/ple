@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import cac from 'cac';
-import epicfail, { log as epicLog } from 'epicfail';
+import epicfail from 'epicfail';
 import { readPlist, rewritePlist } from '.';
 
 epicfail({

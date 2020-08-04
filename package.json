@@ -1,15 +1,15 @@
 {
   "name": "ple",
-  "description": "ple",
+  "description": "Streamlined PList Editor.",
   "version": "1.0.0",
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io)",
   "scripts": {
-    "build": "yarn build:ts --minify --dts",
+    "build": "run-s clean 'build:ts --minify --dts'",
     "build:ts": "tsup src/cli.ts src/index.ts -d dist",
     "clean": "shx rm -rf dist",
-    "dev": "yarn build:ts --watch",
-    "prepublishOnly": "yarn clean && yarn build",
-    "test": "yarn build:ts && jest"
+    "dev": "npm run build:ts -- --watch",
+    "prepublishOnly": "npm run build",
+    "test": "npm run build:ts && jest"
   },
   "dependencies": {
     "cac": "^6.6.1",
@@ -24,6 +24,7 @@
     "@types/plist": "^3.0.2",
     "execa": "^4.0.3",
     "jest": "^26.2.2",
+    "npm-run-all": "^4.1.5",
     "release-it": "^13.6.6",
     "shx": "^0.3.2",
     "ts-jest": "^26.1.4",
