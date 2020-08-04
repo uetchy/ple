@@ -4,9 +4,9 @@
 
 ```bash
 git clone https://github.com/uetchy/ple.git && cd ple
-yarn install
-yarn build
-yarn test
+npm install
+npm run build
+npm test
 ```
 
 ## Release Guide (Maintainers only)

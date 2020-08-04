@@ -1,0 +1,34 @@
+{
+  "projectName": "ple",
+  "projectOwner": "uetchy",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "uetchy",
+      "name": "uetchy",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/431808?v=4",
+      "profile": "https://uechi.io/",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "rsp",
+      "name": "Rafał Pocztarski",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/119231?v=4",
+      "profile": "https://pocztarski.com/",
+      "contributions": [
+        "platform"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
