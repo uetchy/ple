@@ -9,8 +9,15 @@
     "clean": "shx rm -rf dist",
     "dev": "npm run build:ts -- --watch",
     "prepublishOnly": "npm run build",
+    "release": "release-it",
     "test": "npm run build:ts && jest"
   },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "bin": "dist/cli.js",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "cac": "^6.6.1",
     "deepmerge": "^4.2.2",
@@ -32,12 +39,7 @@
     "tsup": "^3.4.2",
     "typescript": "^3.9.7"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "bin": "dist/cli.js",
-  "files": [
-    "dist"
-  ],
+  "homepage": "https://github.com/uetchy/ple",
   "repository": {
     "type": "git",
     "url": "https://github.com/uetchy/ple.git"
@@ -45,11 +47,10 @@
   "bugs": {
     "url": "https://github.com/uetchy/ple/issues"
   },
-  "homepage": "https://github.com/uetchy/ple",
+  "license": "Apache-2.0",
   "keywords": [
     "editor",
     "plist",
     "property-list"
-  ],
-  "license": "Apache-2.0"
+  ]
 }

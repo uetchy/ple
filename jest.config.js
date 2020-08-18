@@ -3,4 +3,4 @@ module.exports = {
   testEnvironment: 'node',
   testMatch: ['**/tests/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
   testPathIgnorePatterns: ['dist'],
-};
+}
