@@ -23,9 +23,31 @@ yarn global add ple
 
 ## Use
 
+### CLI
+
 ```bash
-ple info.plist version v1.0.0
-ple info.plist bundleid io.uechi.ple
+ple info.plist version v1.0.0 # rewrite version
+ple info.plist bundleid io.uechi.ple # rewrite bundleid
+
+ple info.plist version # read version and print to stdout
+```
+
+### Node.js
+
+#### `readPlist`
+
+```js
+import { readPlist } from "ple";
+
+const plistValue = readPlist(plistPath, key);
+```
+
+#### `rewritePlist`
+
+```js
+import { rewritePlist } from "ple";
+
+rewritePlist(plistPath, key, value);
 ```
 
 ## Contribute

@@ -1,32 +1,32 @@
-import merge from 'deepmerge'
-import { readFileSync, writeFileSync } from 'fs'
-import plist from 'plist'
+import merge from "deepmerge";
+import { readFileSync, writeFileSync } from "fs";
+import plist from "plist";
 
 function objectFromDottedProps(key: string, value: any) {
   return key
-    .split('.')
+    .split(".")
     .reverse()
-    .reduce((sum, key) => ({ [key]: sum }), value)
+    .reduce((sum, key) => ({ [key]: sum }), value);
 }
 
 function readDottedProps(key: string, obj: any): any {
-  return key.split('.').reduce((sum, key) => {
-    return sum[key]
-  }, obj)
+  return key.split(".").reduce((sum, key) => {
+    return sum[key];
+  }, obj);
 }
 
-export function loadPlist(plistPath: string): plist.PlistValue {
-  return plist.parse(readFileSync(plistPath, 'utf8'))
+function loadPlist(plistPath: string): plist.PlistValue {
+  return plist.parse(readFileSync(plistPath, "utf8"));
 }
 
 export function writePlist(plistPath: string, data: any): void {
-  writeFileSync(plistPath, plist.build(data))
+  writeFileSync(plistPath, plist.build(data));
 }
 
 export function readPlist(plistPath: string, key?: string): any {
-  const data = loadPlist(plistPath)
-  if (!key) return data
-  return readDottedProps(key, data)
+  const data = loadPlist(plistPath);
+  if (!key) return data;
+  return readDottedProps(key, data);
 }
 
 export function rewritePlist(
@@ -34,8 +34,8 @@ export function rewritePlist(
   key: string,
   value: string
 ): unknown {
-  const data = loadPlist(plistPath)
-  const newData = merge(data as any, objectFromDottedProps(key, value))
-  writePlist(plistPath, newData)
-  return newData
+  const data = loadPlist(plistPath);
+  const newData = merge(data as any, objectFromDottedProps(key, value));
+  writePlist(plistPath, newData);
+  return newData;
 }
