@@ -1,10 +1,10 @@
 {
   "name": "ple",
-  "description": "Streamlined PList Editor.",
+  "description": "Streamlined plist editor",
   "version": "0.1.0",
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io)",
   "scripts": {
-    "build": "run-s clean 'build:ts --minify --dts'",
+    "build": "run-s clean 'build:ts -- --minify --dts'",
     "build:ts": "tsup src/cli.ts src/index.ts -d dist",
     "clean": "shx rm -rf dist",
     "dev": "npm run build:ts -- --watch",
@@ -12,32 +12,32 @@
     "release": "release-it",
     "test": "npm run build:ts && jest"
   },
-  "types": "dist/index.d.ts",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": "dist/cli.js",
   "files": [
     "dist"
   ],
   "dependencies": {
-    "cac": "^6.6.1",
+    "cac": "^6.7.12",
     "deepmerge": "^4.2.2",
-    "epicfail": "^1.0.0",
-    "plist": "^3.0.1"
+    "epicfail": "^3.0.0",
+    "simple-plist": "^1.3.0"
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "^2.0.0",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^14.14.6",
+    "@release-it/conventional-changelog": "^4.2.0",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.21",
     "@types/plist": "^3.0.2",
-    "execa": "^4.1.0",
-    "jest": "^26.6.2",
+    "execa": "^5.1.1",
+    "jest": "^27.5.1",
     "npm-run-all": "^4.1.5",
-    "release-it": "^14.2.1",
-    "shx": "^0.3.3",
-    "ts-jest": "^26.4.3",
-    "ts-node": "^9.0.0",
-    "tsup": "^3.7.1",
-    "typescript": "^4.0.5"
+    "release-it": "^14.12.5",
+    "shx": "^0.3.4",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.7.0",
+    "tsup": "^5.12.0",
+    "typescript": "^4.6.2"
   },
   "homepage": "https://github.com/uetchy/ple",
   "repository": {
@@ -49,6 +49,8 @@
   },
   "license": "Apache-2.0",
   "keywords": [
+    "bplist",
+    "cli",
     "editor",
     "plist",
     "property-list"

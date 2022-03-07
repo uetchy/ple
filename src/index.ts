@@ -1,6 +1,5 @@
 import merge from "deepmerge";
-import { readFileSync, writeFileSync } from "fs";
-import plist from "plist";
+import plist from "simple-plist";
 
 function objectFromDottedProps(key: string, value: any) {
   return key
@@ -15,12 +14,12 @@ function readDottedProps(key: string, obj: any): any {
   }, obj);
 }
 
-function loadPlist(plistPath: string): plist.PlistValue {
-  return plist.parse(readFileSync(plistPath, "utf8"));
+function loadPlist(plistPath: string) {
+  return plist.readFileSync(plistPath);
 }
 
 export function writePlist(plistPath: string, data: any): void {
-  writeFileSync(plistPath, plist.build(data));
+  plist.writeFileSync(plistPath, data);
 }
 
 export function readPlist(plistPath: string, key?: string): any {

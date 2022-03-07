@@ -1,6 +1,6 @@
 # ple
 
-Streamlined PList Editor.
+A streamlined plist editor.
 
 [![npm-version]][npm-url]
 [![npm-downloads]][npm-url]
@@ -13,23 +13,17 @@ Streamlined PList Editor.
 
 ```bash
 npm i -g ple
-# or
-yarn global add ple
 ```
-
-### via Homebrew
-
-`soon`
 
 ## Use
 
 ### CLI
 
 ```bash
-ple info.plist version v1.0.0 # rewrite version
-ple info.plist bundleid io.uechi.ple # rewrite bundleid
-
-ple info.plist version # read version and print to stdout
+ple Info.plist # parse and print content
+ple Info.plist --json # parse and print content in JSON
+ple Info.plist version # parse and print a value of `version`
+ple Info.plist version v1.0.0 # rewrite a value of `version`
 ```
 
 ### Node.js
@@ -73,8 +67,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
 
 **Special thanks:**
 
-- [Rafał Pocztarski](https://github.com/rsp) for donating package name `ple` on npm.
+- [Rafał Pocztarski](https://github.com/rsp) for donating package name `ple`.
